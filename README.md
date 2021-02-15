@@ -139,7 +139,7 @@ style them)
 <p>use Yajra\DataTables\DataTables;</p>
 <br>
 <br>
-<?php
+<pre>
 public function getCustomer($fname = "")
     {
         //get the first name if exists
@@ -160,7 +160,7 @@ public function getCustomer($fname = "")
         
         return DataTables::of($customer)
             //add a extra column
-            ->addColumn('permissions', function (Customer $role) {
+            ->addColumn('permissions', function ($customer) {
                 return '<div class="badge badge-info">fsdfsdf</div>';
             })
             ->addColumn('actions', function ($customer) {
@@ -178,19 +178,5 @@ public function getCustomer($fname = "")
             ->rawColumns(['permissions', 'actions', 'first_name'])
 
             ->make(true);
-
-        /*
-                return DataTables::of($customer)
-            ->editColumn('first_name', function ($customer) {
-                return '<span class="text-primary">' . $customer->first_name . '</span>';
-            })
-            ->addColumn('action', function ($customer) {
-                return '<a href="#edit-' . $customer->customer_id . '" class="btn btn-xs btn-primary"><i class="glyphicon glyphicon-edit"></i> Edit</a>';
-            })
-
-            ->make(true);
-             *
-             * @return void
-             */
-    }
-
+   }
+</pre>
